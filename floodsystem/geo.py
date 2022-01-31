@@ -33,3 +33,12 @@ def stations_within_radius(stations, centre, r):
             names.append(station.name)
         
     return names
+
+#Task 1D
+stations_by_rivers = {}
+def stations_by_river(stations):
+    
+    for station in stations:
+        stations_by_rivers[station.river] = station.name
+    
+    return set(stations_by_rivers)
