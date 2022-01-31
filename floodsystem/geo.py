@@ -24,3 +24,12 @@ def stations_by_distance(stations, p):
     turples = list(zip(names, distance))
     turples = sorted_by_key(turples,1)
     return turples
+
+#Task 1C
+def stations_within_radius(stations, centre, r):
+    for station in stations:
+        
+        if r > haversine(centre, station.coord):
+            names.append(station.name)
+        
+    return names
