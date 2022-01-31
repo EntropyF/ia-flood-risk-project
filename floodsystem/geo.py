@@ -35,10 +35,20 @@ def stations_within_radius(stations, centre, r):
     return names
 
 #Task 1D
-stations_by_rivers = {}
-def stations_by_river(stations):
-    
+set_river = set()
+def rivers_with_station(stations):
     for station in stations:
-        stations_by_rivers[station.river] = station.name
+        set_river.add(station.river)
+    return set_river
+
+def stations_by_river(stations):
+
+    stations_by_rivers = {}    
+    for station in stations:
+        if station.river in stations_by_rivers:
+            stations_by_rivers[station.river].append(station.name)
+            #stations_by_rivers[station.river].sort
+        else:
+            stations_by_rivers[station.river] = [station.name]
     
-    return set(stations_by_rivers)
+    return stations_by_rivers
