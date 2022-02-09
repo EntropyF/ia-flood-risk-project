@@ -25,7 +25,7 @@ s = [s1,s2,s3]
 def test_stations_by_distance():
     """Test stations sorted by distance"""
     test = stations_by_distance(s,(0.0,0.0))
-    for i in len(test) - 1:
+    for i in range(len(test) - 1):
         stations_by_distance[i][1] < stations_by_distance[i+1][1]
     assert True
     assert type(test) == tuple
@@ -37,7 +37,7 @@ def test_stations_within_radius():
 
 def test_rivers_with_station():
     """Test rivers with a monitoring station (no duplicate entries)"""
-    assert test_rivers_with_station(s) == {'River X', 'River Y'}
+    assert rivers_with_station(s) == {'River X', 'River Y'}
 
 def test_stations_by_river():
     """Test rivers (keys) mapping to stations (values)"""
@@ -45,4 +45,4 @@ def test_stations_by_river():
 
 def test_rivers_by_station_number():
     """Test rivers with the greatest number of stations"""
-    assert rivers_by_station_number(s,2) == ('River X', 2)
+    assert rivers_by_station_number(s,1) == ('River X', 2)
