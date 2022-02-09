@@ -70,4 +70,4 @@ def rivers_by_station_number(stations, N):
     while sorted_output[N][1] == sorted_output[N - 1][1]:
         N += 1
 
-    return sorted_output[ :N]
+    return sorted_output[ :N-1]
