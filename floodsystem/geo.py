@@ -6,9 +6,9 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+from utils import sorted_by_key    #pip install utils
 
-from haversine import haversine
+from haversine import haversine    #pip install haversine
 
 #Task 1B
 names = []
@@ -53,6 +53,7 @@ def stations_by_river(stations):
 
 #Task 1E
 def rivers_by_station_number(stations, N):
+    "Return the N rivers with the greatest number of monitoring stations"
 
     number_of_stations_dict = {}
     for station in stations:
