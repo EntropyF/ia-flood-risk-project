@@ -6,8 +6,7 @@ geographical data.
 
 """
 
-from utils import sorted_by_key    #pip install utils
-
+#from utils import sorted_by_key
 from haversine import haversine    #pip install haversine
 
 #Task 1B
@@ -19,9 +18,9 @@ def stations_by_distance(stations, p):
         names.append(station.name)
         distance.append(haversine(p, station.coord))
     
-    turples = list(zip(names, distance))
-    turples = sorted_by_key(turples,1)
-    return turples
+    tuples = list(zip(names, distance))
+    tuples = sorted_by_key(tuples,1)
+    return tuples
 
 #Task 1C
 def stations_within_radius(stations, centre, r):
