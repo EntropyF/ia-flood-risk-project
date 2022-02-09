@@ -6,7 +6,7 @@ geographical data.
 
 """
 
-#from utils import sorted_by_key
+from .utils import sorted_by_key
 from haversine import haversine    #pip install haversine
 
 #Task 1B
