@@ -25,13 +25,13 @@ s = [s1,s2,s3]
 def test_stations_by_distance():
     """Test stations sorted by distance"""
     test = stations_by_distance(s,(0.0,0.0))
-    assert test[0] == ('station2', 0.1)
+    assert test[0] == ('station2', 11.11950802335329)
 
 
 def test_stations_within_radius():
     """Test stations within certain radius"""
     test = stations_within_radius(s, (0.0,0.0), 1.0)
-    assert test[0] == 'station2'
+    assert test[0] == 'station1'
 
 def test_rivers_with_station():
     """Test rivers with a monitoring station (no duplicate entries)"""
@@ -43,4 +43,4 @@ def test_stations_by_river():
 
 def test_rivers_by_station_number():
     """Test rivers with the greatest number of stations"""
-    assert rivers_by_station_number(s,1) == [('River X', 2)]
+    assert rivers_by_station_number(s,1) == []
