@@ -41,10 +41,12 @@ class MonitoringStation:
 
     #Task 1F
     def typical_range_consistent(self):
-        if self.typical_range is None:
+        "Check the stations with inconsistent data"
+
+        if self.typical_range is None:                       #No data is available
             return False
 
-        elif self.typical_range[0] > self.typical_range[1]:
+        elif self.typical_range[0] > self.typical_range[1]:  #reported typical high range < reported typical low range
             return False
 
         else:
@@ -65,6 +67,8 @@ class MonitoringStation:
 
 
 def inconsistent_typical_range_stations(stations):
+    "Return a list of inconsistent stations"
+
     station_list = []
     for station in stations:
         if station.typical_range_consistent() == False:
