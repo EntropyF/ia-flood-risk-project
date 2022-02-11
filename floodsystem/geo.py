@@ -6,9 +6,8 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
-
-from haversine import haversine
+from .utils import sorted_by_key
+from haversine import haversine    #pip install haversine
 
 #Task 1B
 names = []
@@ -19,9 +18,9 @@ def stations_by_distance(stations, p):
         names.append(station.name)
         distance.append(haversine(p, station.coord))
     
-    turples = list(zip(names, distance))
-    turples = sorted_by_key(turples,1)
-    return turples
+    tuples = list(zip(names, distance))
+    tuples = sorted_by_key(tuples,1)
+    return tuples
 
 #Task 1C
 def stations_within_radius(stations, centre, r):
@@ -53,6 +52,7 @@ def stations_by_river(stations):
 
 #Task 1E
 def rivers_by_station_number(stations, N):
+    "Return the N rivers with the greatest number of monitoring stations"
 
     number_of_stations_dict = {}
     for station in stations:
@@ -70,4 +70,4 @@ def rivers_by_station_number(stations, N):
     while sorted_output[N][1] == sorted_output[N - 1][1]:
         N += 1
 
-    return sorted_output[ :N]
+    return sorted_output[ :N-1]
