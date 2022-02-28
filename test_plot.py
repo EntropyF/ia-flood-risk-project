@@ -5,10 +5,15 @@ from floodsystem.plot import plot_water_levels, plot_water_level_with_fit
 
 stations = build_station_list()
 
-def test_plot_water_levels():
-    '''Test water level - time plot'''
-    assert plot_water_levels(stations[0], 2, stations[0].typical_range)
+import numpy as np
 
-def test_plot_water_level_with_fit():
-    '''Test polynomail plot of water level - time'''
-    assert plot_water_level_with_fit(stations[0], 2, stations[0].typical_range, 3)
+def test_polt_water_level_with_fit():
+    x = np.linspace(1, 1000, 100000)
+    y = []
+    for i in x:
+        y.append(3*i**2 + 5)
+    p_coeff = np.polyfit(x, y, 2)
+    poly = np.poly1d(p_coeff)
+    assert int(p_coeff[0]) == 2
+
+print(test_poly())
