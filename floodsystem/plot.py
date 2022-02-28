@@ -12,7 +12,7 @@ def plot_water_levels(station, dates, levels):
     thigh = station.typical_range[1]
     tlow_list = []
     thigh_list = []
-    for i in range(len(dates)):
+    for i in range(dates):
         tlow_list.append(tlow)
         thigh_list.append(thigh)
     
@@ -34,8 +34,8 @@ def plot_water_levels(station, dates, levels):
 # Task 2F
 def plot_water_level_with_fit(station, dates, levels, p):
     x = matplotlib.dates.date2num(dates)    # Convert to floats
-    x1 = np.linspace(x[0], x[-1], 1000)     # Create data points
-    x_date = matplotlib.dates.num2date(x1)
+    dateset = np.linspace(x[0], x[-1], 100)     # Create data points
+    x_date = matplotlib.dates.num2date(dateset)
     poly, d0 = polyfit(dates, levels, p)
     
     tlow = station.typical_range[0]
@@ -46,7 +46,7 @@ def plot_water_level_with_fit(station, dates, levels, p):
         tlow_list.append(tlow)
         thigh_list.append(thigh)
     
-    plt.plot(x_date, poly(x1-d0), label = "Best fit")
+    plt.plot(x_date, poly(dateset-d0), label = "Best fit")
     plt.plot(x_date, tlow_list, label = "Typical low")
     plt.plot(x_date, thigh_list, label = "Typical high")
     plt.legend
