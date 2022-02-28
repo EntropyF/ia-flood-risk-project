@@ -15,5 +15,3 @@ def test_polt_water_level_with_fit():
     p_coeff = np.polyfit(x, y, 2)
     poly = np.poly1d(p_coeff)
     assert int(p_coeff[0]) == 2
-
-print(test_poly())
